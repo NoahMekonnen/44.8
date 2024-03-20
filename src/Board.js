@@ -56,7 +56,7 @@ function Board({ nrows = 6, ncols = 6, chanceLightStartsOn = .5 }) {
   function flipCellsAround(coord) {
     console.log(board,"Board")
     setBoard(oldBoard => {
-      console.log(coord,"Coord")
+    
       const [y, x] = coord.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
@@ -77,16 +77,6 @@ function Board({ nrows = 6, ncols = 6, chanceLightStartsOn = .5 }) {
       flipCell(y + 1, x, newBoard)
       flipCell(y, x + 1, newBoard)
 
-      console.log(newBoard,"newBoard")
-
-      for (let i = 0; i<nrows;i++){
-        console.log(oldBoard[i] == newBoard[i],"equality")
-        for (let j=0; j<ncols;j++){
-          if (oldBoard[i][j] !=newBoard[i][j]){
-            console.log("TRUE")
-          }
-        }
-      }
       // TODO: return the copy
       return newBoard
     });
